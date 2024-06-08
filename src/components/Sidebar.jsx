@@ -18,7 +18,7 @@ import toast from 'react-hot-toast';
 import BeenhereRoundedIcon from '@mui/icons-material/BeenhereRounded';
 
 
-const Sidebar = () => {
+const Sidebar = ({ number }) => {
 
     const dispatch = useDispatch();
     const user = useSelector(state => state.user.user);
@@ -27,14 +27,22 @@ const Sidebar = () => {
     // fetching current user details
     // sameer : YkiPF933bFSmFZyfxxVO
     // sajed : jbROIbXYpUWOAVc9O3k5
+
+
+
     useEffect(() => {
-        onSnapshot(
-            doc(db, "users", "jbROIbXYpUWOAVc9O3k5"), // this is the id of shaikhsajed
-            { includeMetadataChanges: true },
-            (doc) => {
-                dispatch(setUser({ id: doc.id, data: doc.data() }));
-            })
-    }, [])
+        if (number) {
+
+            const fetchUserDocs = number === "7773936878" ? "jbROIbXYpUWOAVc9O3k5" : "YkiPF933bFSmFZyfxxVO"
+
+            onSnapshot(
+                doc(db, "users", fetchUserDocs), // this is the id of shaikhsajed
+                { includeMetadataChanges: true },
+                (doc) => {
+                    dispatch(setUser({ id: doc.id, data: doc.data() }));
+                })
+        }
+    }, [number])
 
 
     // copyUPIID
@@ -45,7 +53,7 @@ const Sidebar = () => {
 
 
     return (
-        <div className='sm:p-2 bg-[#c8c8ff1f] min-h-screen'>
+        <div className='sm:p-2 min-h-screen'>
             {
 
                 user !== null ? <div className="lg:mt-[6rem]">

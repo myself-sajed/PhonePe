@@ -10,6 +10,7 @@ import { setComponent, setIsBalanceModalOpen, setIsUPIModalOpen } from '../redux
 import Loader from './Loader';
 import Failed from './Failed';
 import { useNavigate } from 'react-router-dom';
+import Help from './Help';
 
 const UPIModal = () => {
     const dispatch = useDispatch()
@@ -22,7 +23,7 @@ const UPIModal = () => {
                 <div className='flex items-center justify-center gap-5 m-2'>
                     <div className='flex item-center justify-center gap-3'>
                         <AccountBalanceWalletRoundedIcon sx={{ 'color': '#562f99', 'fontSize': '35px' }} />
-                        <p className='font-sans text-3xl text-violet-900'>Send to Contact number</p>
+                        <p className='font-sans text-xl md:text-3xl text-violet-900'>Send to Contact number <Help /> </p>
                     </div>
                     <IconButton
                         onClick={() => {

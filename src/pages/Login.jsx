@@ -1,14 +1,14 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useRef, useState } from 'react'
 import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
 import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded';
 import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
 import toast from 'react-hot-toast';
 import { CircularProgress } from '@mui/material';
 import VerifiedRoundedIcon from '@mui/icons-material/VerifiedRounded';
-import { collection, query, where, getDocs } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import { db } from '../firebase';
 import { Link } from 'react-router-dom';
-import Axios from 'axios';
+import Help from '../components/Help';
 
 
 const Login = ({ setAuth }) => {
@@ -150,8 +150,8 @@ const Login = ({ setAuth }) => {
 
 
                                             : user === false ?
-                                                <p className='text-sm text-red-500'>User is not registered with <span className='text-violet-900 font-bold'>PhonePe</span>. <Link to='/register' className='text-blue-900  hover:font-bold duration-200 ease-in-out'>Register Now</Link>.</p>
-                                                : <p className="text-sm text-violet-500 w-full">Enter mobile registered with <span className='text-violet-900 font-bold'>PhonePe</span>.</p>
+                                                <p className='text-sm text-red-500'>User is not registered with <span className='text-violet-900 font-bold'>PhonePe </span>. <Link to='/register' className='text-blue-900  hover:font-bold duration-200 ease-in-out'>Register Now</Link>.</p>
+                                                : <p className="text-sm text-violet-500 w-full">Enter mobile registered with <span className='inline-flex text-violet-900 font-bold'>PhonePe <Help /></span></p>
                                 }
                             </div>
                         </div>

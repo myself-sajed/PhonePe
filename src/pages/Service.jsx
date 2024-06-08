@@ -22,6 +22,7 @@ import { DoNotTouchTwoTone } from '@mui/icons-material';
 import { setPaymentDetails } from '../redux/slices/detailSlice';
 import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
 import RepeatIcon from '@mui/icons-material/Repeat';
+import Help from '../components/Help';
 
 const Service = () => {
 
@@ -207,7 +208,7 @@ const Service = () => {
                 <IconButton onClick={() => { navigate(-1) }}>
                     <ArrowBackRoundedIcon className="text-violet-900" sx={{ 'fontSize': '40px' }} />
                 </IconButton>
-                <p className="text-2xl md:text-3xl text-violet-900">Transfer money to Mobile Number</p>
+                <p className="text-2xl md:text-3xl text-violet-900">Transfer money to Mobile Number <Help /></p>
 
             </div>
             <hr />

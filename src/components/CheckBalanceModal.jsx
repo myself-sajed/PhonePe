@@ -8,6 +8,7 @@ import FetchedBalance from './FetchedBalance';
 import { useDispatch, useSelector } from 'react-redux';
 import { setComponent, setIsBalanceModalOpen } from '../redux/slices/checkBalance';
 import Loader from './Loader';
+import Help from './Help';
 
 const CheckBalanceModal = ({ setModal }) => {
 
@@ -25,7 +26,7 @@ const CheckBalanceModal = ({ setModal }) => {
                 <div className='flex items-center justify-center gap-5 m-2'>
                     <div className='flex item-center justify-center gap-3'>
                         <AccountBalanceWalletRoundedIcon sx={{ 'color': '#562f99', 'fontSize': '35px' }} />
-                        <p className='font-sans text-3xl text-violet-900'>Check Bank Balance</p>
+                        <p className='font-sans text-xl md:text-3xl text-violet-900'>Check Bank Balance <Help /> </p>
                     </div>
                     <IconButton
                         onClick={() => {

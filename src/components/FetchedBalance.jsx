@@ -41,7 +41,7 @@ const FetchedBalance = ({ selectedBank, isAuth }) => {
                     isAuth ? <>
                         <h1 className="text-violet-900 text-[50px] text-center font-bold">
                             ₹ {selectedBank.bankBalance.toLocaleString()}</h1>
-                        <div className='flex items-center justify-center gap-1'>
+                        <div className='flex items-center justify-center gap-1 mt-3'>
                             <img src={selectedBank.bankPhotoURL} alt="idbi" className="img-responsive h-7" />
                             <span className='text-xl'>{selectedBank.bankName}</span>
                         </div>

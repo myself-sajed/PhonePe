@@ -9,7 +9,7 @@ import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import { Avatar, IconButton } from '@mui/material';
 import Sidebar from './Sidebar';
 
-const Navbar = () => {
+const Navbar = ({ number }) => {
     const isBalanceModalOpen = useSelector(state => state.checkBalance.isBalanceModalOpen)
     const isUPIModalOpen = useSelector(state => state.checkBalance.isUPIModalOpen)
     const isPromptOpen = useSelector(state => state.prompt.isPromptOpen)
@@ -32,7 +32,7 @@ const Navbar = () => {
                             <div className="absolute right-2 -top-2">
                                 <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"><CloseRoundedIcon /></button>
                             </div>
-                            <Sidebar />
+                            <Sidebar number={number} />
                         </div>
                     </div>
                     <img src="/assets/logo.svg" className='md:h-14 h-10 cursor-pointer' alt="logo" />

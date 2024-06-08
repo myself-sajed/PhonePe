@@ -9,15 +9,15 @@ import { useSelector } from 'react-redux'
 import Loader from './Loader'
 import PageNotFound from '../pages/PageNotFound'
 
-const Main = () => {
+const Main = ({ number }) => {
 
     const user = useSelector(state => state.user.user)
 
 
     return (
         <div className="lg:grid xl:grid-cols-3 lg:grid-cols-4">
-            <div className="h-full w-full lg:block hidden">
-                <Sidebar />
+            <div className="h-full w-full lg:block hidden bg-[#c8c8ff1f] ">
+                <Sidebar number={number} />
             </div>
 
             <div className="xl:col-span-2 lg:col-span-3 mt-[4rem] lg:p-0 p-2">

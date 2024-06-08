@@ -40,22 +40,22 @@ const Rightbar = () => {
 
 
     return (
-        <div className='w-full mb-10'>
+        <div className='w-full my-10 p-4'>
 
 
 
             {/* HERO VIDEO */}
-            <div className='flex justify-around w-full'>
+            <div className='flex justify-around items-center w-full'>
 
-                <div className='flex flex-col items-start justify-start mt-6 gap-0 leading-[100px]'>
-                    <p className='text-[#5b32a1] font-bold font-sans text-[100px]'>Simple</p>
-                    <p className='text-[#7843d4] font-bold font-sans text-[100px]'>Fast</p>
-                    <p className='text-[#894ef0] font-bold font-sans text-[100px]'>&</p>
-                    <p className='text-[#a36dff] font-bold font-sans text-[100px]'>Secure</p>
+                <div className='flex flex-col items-start justify-start mt-0 md:mt-6 gap-0 leading-[50px] sm:leading-[70px] md:leading-[100px]'>
+                    <p className='text-[#5b32a1] font-bold font-sans text-[45px] sm:text-[60px] md:text-[100px]'>Simple</p>
+                    <p className='text-[#7843d4] font-bold font-sans text-[45px] sm:text-[60px] md:text-[100px]'>Fast</p>
+                    <p className='text-[#894ef0] font-bold font-sans text-[45px] sm:text-[60px] md:text-[100px]'>&</p>
+                    <p className='text-[#a36dff] font-bold font-sans text-[45px] sm:text-[60px] md:text-[100px]'>Secure</p>
                 </div>
 
-                <video width="450" height="340" loop muted autoPlay>
-                    <source src="/assets/v1.mp4" type="video/mp4" />
+                <video className='md:w-[500px] md:h-[390px] w-[300px] h-[200px] border-none outline-none' loop muted autoPlay>
+                    <source src="/assets/v1.mp4" type="video/mp4" className='border-none outline-none' />
                     Your browser does not support the html video tag.
                 </video>
 
@@ -65,16 +65,16 @@ const Rightbar = () => {
             <div>
                 {/* SERVICES */}
 
-                <div className='flex justify-center gap-2'>
-                    <img src="/assets/logo.svg" alt="phonepe" className="h-16" />
-                    <p className='text-center font-bold mt-4 text-3xl text-[#562f99]'> Services </p>
+                <div className='flex justify-center items-center gap-4 mt-10'>
+                    <img src="/assets/logo.svg" alt="phonepe" className="md:h-16 h-10" />
+                    <p className='text-center font-bold mt-1 text-xl md:text-3xl text-[#562f99]'> Services </p>
                 </div>
 
                 {/* TRANSFER MONEY */}
-                <div className='mx-10 mb-10'>
+                <div className='md:mx-10 mb-10'>
                     <p className='bg-[#6e49ad] rounded-lg p-1 text-center my-4 text-white'>Transfer Money</p>
 
-                    <div className='flex items-center justify-center gap-8'>
+                    <div className='flex items-center justify-center gap-8 flex-wrap'>
 
                         <div onClick={() => navigate('/services/transfer-money/to-mobile-number')} ><Tile icon={<PersonRoundedIcon sx={{ 'color': '#562f99', 'fontSize': '40px' }} />} name='To Mobile Number' /></div>
 
@@ -91,7 +91,7 @@ const Rightbar = () => {
                 </div>
 
                 {/* RECHARGE */}
-                <div className='mx-10'>
+                <div className='md:mx-10'>
                     <p className='bg-[#6e49ad] rounded-lg p-1 text-center my-4 text-white'>Recharge & Pay Bills</p>
 
                     <div className='flex items-center justify-center gap-8 flex-wrap'>
@@ -116,7 +116,7 @@ const Rightbar = () => {
                     </div>
                 </div>
                 {/* RECHARGE */}
-                <div className='mx-10'>
+                <div className='md:mx-10'>
                     <p className='bg-[#6e49ad] rounded-lg p-1 text-center my-4 text-white'>Insurance</p>
 
                     <div className='flex items-center justify-center gap-8 flex-wrap'>
@@ -142,10 +142,10 @@ const Rightbar = () => {
                 </div>
 
                 {/* Donation MONEY */}
-                <div className='mx-10 mb-10'>
+                <div className='md:mx-10 mb-10'>
                     <p className='bg-[#6e49ad] rounded-lg p-1 text-center my-4 text-white'>Donation</p>
 
-                    <div className='flex items-center justify-center gap-8'>
+                    <div className='flex items-center justify-center gap-8 flex-wrap'>
 
                         <Tile icon={<LocalHospitalRoundedIcon sx={{ 'color': '#562f99', 'fontSize': '40px' }} />} name='World Health Day' />
 
@@ -160,10 +160,10 @@ const Rightbar = () => {
                 </div>
 
                 {/* Switch */}
-                <div className='mx-10 mb-10'>
+                <div className='md:mx-10 mb-10'>
                     <p className='bg-[#6e49ad] rounded-lg p-1 text-center my-4 text-white'>Switch</p>
 
-                    <div className='flex items-center justify-center gap-8'>
+                    <div className='flex items-center justify-center gap-8 flex-wrap'>
 
                         <Tile icon={<TrainRoundedIcon sx={{ 'color': '#562f99', 'fontSize': '40px' }} />} name='Trains' />
 

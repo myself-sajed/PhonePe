@@ -165,7 +165,6 @@ const EnterUPIID = ({ button1, button2, selectedBank, setEnteredUpiId }) => {
                                         dispatch(setPaymentDetails(null))
 
                                     } else {
-                                        console.log("No such document!");
                                         dispatch(setIsUPIModalOpen(false))
                                         dispatch(setComponent('banks'))
                                     }
@@ -173,21 +172,13 @@ const EnterUPIID = ({ button1, button2, selectedBank, setEnteredUpiId }) => {
                                 else {
                                     navigate('/')
                                     dispatch(setComponent('failed'))
-                                    console.log('Insufficient balance')
                                     toast.error('Insufficient balance ')
                                 }
 
                             }
-                            else {
-                                console.log('Not found');
-                            }
                         })
 
-                    } else {
-                        console.log("No such document!");
                     }
-
-
 
                 } catch (error) {
                     console.log(error)

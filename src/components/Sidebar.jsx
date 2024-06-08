@@ -28,7 +28,7 @@ const Sidebar = () => {
     // sameer : YkiPF933bFSmFZyfxxVO
     // sajed : jbROIbXYpUWOAVc9O3k5
     useEffect(() => {
-        const unsub = onSnapshot(
+        onSnapshot(
             doc(db, "users", "jbROIbXYpUWOAVc9O3k5"), // this is the id of shaikhsajed
             { includeMetadataChanges: true },
             (doc) => {
@@ -36,10 +36,6 @@ const Sidebar = () => {
             })
     }, [])
 
-    const changeBankConfig = (bank) => {
-        // change bank config
-        console.log(bank);
-    }
 
     // copyUPIID
     const copyUPIID = () => {
@@ -49,28 +45,30 @@ const Sidebar = () => {
 
 
     return (
-        <div>
+        <div className='sm:p-2 bg-[#c8c8ff1f] min-h-screen'>
             {
 
-                user !== null ? <div className="w-96">
+                user !== null ? <div className="lg:mt-[6rem]">
 
                     {/* PROFILE */}
-                    <p className='mb-3'>Your <span className='text-[#6739b7] font-bold'>PhonePe</span> Profile</p>
-                    <div className='-2 -[#6739b7] p-3 rounded-3xl'>
-                        <Avatar src={user.data.photoURL} sx={{ width: 140, height: 140 }} alt="dp" className="mx-auto text-lg " />
+                    <div className="mb-10">
+                        <p className="text-violet-900 bg-violet-100 p-2 rounded-full">PhonePe Profile</p>
+                        <div className='-2 -[#6739b7] p-3 rounded-3xl'>
+                            <Avatar src={user.data.photoURL} sx={{ width: 140, height: 140 }} alt="dp" className="mx-auto text-lg " />
 
-                        <div className='flex items-center justify-center gap-1'>
-                            <p className="text-center font-bold text-[#6739b7]">{user && user.data.name}</p>
-                            <VerifiedRoundedIcon sx={{ 'fontSize': '17px' }} className='text-green-700' />
+                            <div className='flex items-center justify-center gap-1'>
+                                <p className="text-center font-bold text-[#6739b7]">{user && user.data.name}</p>
+                                <VerifiedRoundedIcon sx={{ 'fontSize': '17px' }} className='text-green-700' />
 
+                            </div>
+                            <p className="text-center font-sm text-gray-600">{user && user.data.mobile}</p>
+                            <p className="text-center font-sm text-gray-600">{user && user.data.email}</p>
+                            <p className="text-center mx-10 font-sm text-violet-800 cursor-pointer mt-2 hover:font-bold hover:text-violet-900 ease-in-out duration-100 bg-violet-200 p-1 rounded-lg" onClick={copyUPIID}>{user && user.data.upiId}</p>
                         </div>
-                        <p className="text-center font-sm text-gray-600">{user && user.data.mobile}</p>
-                        <p className="text-center font-sm text-gray-600">{user && user.data.email}</p>
-                        <p className="text-center mx-10 font-sm text-violet-800 cursor-pointer mt-2 hover:font-bold hover:text-violet-900 ease-in-out duration-100 bg-violet-200 p-1 rounded-lg" onClick={copyUPIID}>{user && user.data.upiId}</p>
                     </div>
 
                     {/* Bank Accounts */}
-                    <div className='mt-5 '>
+                    <div className='my-10'>
                         <p className="text-violet-900 bg-violet-100 p-2 rounded-full">Linked Bank Account(s)</p>
                         <div className='mt-3 -2 -[#6739b7] p-3 rounded-3xl'>
 
@@ -78,9 +76,9 @@ const Sidebar = () => {
                                 user && user.data.banks.map((bank, index) => {
                                     return (
                                         <div key={index}>
-                                            <div className='cursor-pointer m-2 hover:bg-violet-100 p-2 rounded-2xl ease-in-out duration-300' onClick={() => { changeBankConfig(bank) }}>
+                                            <div className='cursor-pointer m-2 hover:bg-violet-100 p-2 rounded-2xl ease-in-out duration-300' >
                                                 <div className='flex items-start justify-between'>
-                                                    <img src={user && bank.bankPhotoURL} alt="idbi" className='h-16' />
+                                                    <img src={user && bank.bankPhotoURL} alt="idbi" className='lg:h-16 md:h-10 sm:h-12 h-10' />
                                                     <div className='flex items-start justify-start flex-col'>
                                                         <p className="text-center font-sm text-gray-600">{user && bank.bankName}</p>
                                                         <p className="text-center font-sm text-gray-600">XXXX {user && bank.bankAcNo}</p>
@@ -108,7 +106,7 @@ const Sidebar = () => {
                     </div>
 
                     {/* Settings */}
-                    <div className='my-5'>
+                    <div className='my-10'>
                         <p className='text-violet-900 bg-violet-100 p-2 rounded-full'>Settings</p>
                         <div className='mt-3 -2 -[#6739b7] p-3 rounded-3xl'>
 
@@ -136,7 +134,7 @@ const Sidebar = () => {
                     </div>
                 </div>
 
-                    : <div className="w-96"><Loader title='Fetching User Details' /></div>
+                    : <div><Loader title='Fetching User Details' /></div>
 
             }
 

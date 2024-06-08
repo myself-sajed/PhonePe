@@ -43,10 +43,8 @@ const Transaction = () => {
             // Get a document, forcing the SDK to fetch from the offline cache.
             try {
                 const doc = await getDoc(docRef);
-                console.log('List of all the transactions so far ', doc.data().transactions);
                 const theTransaction = doc.data().transactions.find((transaction) => transaction.transactionURL === transactionURL)
 
-                console.log('Transaction for this page is', theTransaction);
 
                 if (theTransaction) {
                     setTransactionData(theTransaction)
@@ -74,7 +72,7 @@ const Transaction = () => {
     }, [])
 
     return (
-        <div className="w-full">
+        <div className="w-full mt-3">
 
             {
                 transactionData ?
@@ -83,8 +81,8 @@ const Transaction = () => {
                         {/* SUCCESSFUL */}
                         <div className='flex justify-between items-center bg-green-800 p-2 rounded-lg'>
                             <ArrowBackRoundedIcon sx={{ 'fontSize': '40px' }} className='text-white cursor-pointer' onClick={() => { navigate(-1) }} />
-                            <p className='text-2xl text-white'>Transaction Successful</p>
-                            <p className='text-lg text-white'>On {transactionData.date}</p>
+                            <p className='md:text-2xl sm:text-xl text-lg text-white'>Transaction Successful</p>
+                            <p className='sm:text-base text-sm md:text-lg text-white'>On {transactionData.date}</p>
                         </div>
 
 
@@ -98,14 +96,12 @@ const Transaction = () => {
                                     <div div className='flex items-center justify-center my-2 mt-10' >
 
                                         {
-                                            location.state ? <img src="/assets/success.png" draggable="false" alt="gif" className='h-24 animate-bounce' /> : null
-
-
+                                            location.state ? <img src="/assets/success.png" draggable="false" alt="gif" className='md:h-24 h-12 md:mt-0 mt-4 animate-bounce' /> : null
                                         }
                                     </div >
 
                                     {
-                                        location.state ? <p className="text-3xl text-center text-[#2c8059] duration-100 animate-bounce"><b>Rs. {(location.state.amountToPay).toLocaleString()}</b> sent Securely to <b>{location.state.receiverName}</b></p> : null
+                                        location.state ? <p className="text-xl md:text-3xl text-center text-[#2c8059] duration-100 animate-bounce"><b>Rs. {(location.state.amountToPay).toLocaleString()}</b> sent Securely to <b>{location.state.receiverName}</b></p> : null
 
 
                                     }

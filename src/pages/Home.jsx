@@ -5,18 +5,16 @@ import Login from './Login'
 
 
 const Home = () => {
-    const [auth, setAuth] = useState(false)
+    const [auth, setAuth] = useState(true)
     return (
 
         <>
 
 
             {
-                auth ? <div className='mx-10 '>
+                auth ? <div className=''>
                     <Navbar />
-
                     <Main />
-
                 </div> : <Login setAuth={setAuth} />
             }
 

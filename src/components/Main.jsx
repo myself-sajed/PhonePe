@@ -15,26 +15,30 @@ const Main = () => {
 
 
     return (
-        <div className="flex justify-start gap-5 items-start mt-10">
-            <Sidebar />
+        <div className="lg:grid xl:grid-cols-3 lg:grid-cols-4">
+            <div className="h-full w-full lg:block hidden">
+                <Sidebar />
+            </div>
 
-            {
-                user !== null ? <Routes>
-                    <Route path="/" exact element={<AllServices />} />
-                    <Route path="/services/history" exact element={<TransactionHistory />} />
-                    <Route path="/services/transaction/:transactionURL" element={<Transaction />} />
-                    <Route path="/services/transfer-money/:service" element={<Service />} />
-                    <Route path="*" element={<PageNotFound />} />
+            <div className="xl:col-span-2 lg:col-span-3 mt-[4rem] lg:p-0 p-2">
+                {
+                    user !== null ? <Routes>
+                        <Route path="/" exact element={<AllServices />} />
+                        <Route path="/services/history" exact element={<TransactionHistory />} />
+                        <Route path="/services/transaction/:transactionURL" element={<Transaction />} />
+                        <Route path="/services/transfer-money/:service" element={<Service />} />
+                        <Route path="*" element={<PageNotFound />} />
 
-                </Routes>
+                    </Routes>
 
-                    :
+                        :
 
-                    <div className="flex items-center justify-center w-full">
-                        <Loader title='Fetching Services for you' />
-                    </div>
+                        <div className="flex items-center justify-center w-full">
+                            <Loader title='Fetching Services for you' />
+                        </div>
 
-            }
+                }
+            </div>
 
         </div>
     )

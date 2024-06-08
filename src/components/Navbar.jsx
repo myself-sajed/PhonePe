@@ -1,34 +1,60 @@
-import React from 'react'
-import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
-import { useDispatch, useSelector } from 'react-redux';
-import { setIsBalanceModalOpen } from '../redux/slices/checkBalance';
+import React, { useState } from 'react'
+import { useSelector } from 'react-redux';
 import CheckBalanceModal from './CheckBalanceModal';
 import UPIModal from './UPIModal';
 import Prompts from './Prompts';
 import { Link } from 'react-router-dom';
+import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
+import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
+import { Avatar, IconButton } from '@mui/material';
+import Sidebar from './Sidebar';
 
 const Navbar = () => {
     const isBalanceModalOpen = useSelector(state => state.checkBalance.isBalanceModalOpen)
     const isUPIModalOpen = useSelector(state => state.checkBalance.isUPIModalOpen)
     const isPromptOpen = useSelector(state => state.prompt.isPromptOpen)
+    const [open, setOpen] = useState(false)
+    const user = useSelector(state => state.user.user);
+
 
     return (
-        <div className='bg-[#c8c8ff] mt-5 rounded-full'>
+        <div className='bg-[#c8c8ff] fixed top-0 left-0 z-30 w-full'>
             <div className="flex items-center justify-between px-4 py-1">
-                <img src="/assets/logo.svg" className='h-14 cursor-pointer' alt="logo" />
-                {/* <div className='flex items-center border-2 border-[#7f47e0] hover:border-[#6032af] ease-in-out duration-200 p-2 rounded-2xl'>
-                    <SearchRoundedIcon sx={{ 'color': '#3e1b7a' }} />
-                    <input type="search" size='50' className='outline-none border-none bg-transparent text-[#3e1b7a]' />
-                </div> */}
-                <div className='flex items-center justify-between font-sans font-bold gap-3 text-[#6739b7] '>
-                    <Link to='/' className="hover:text-[#3e1b7a] cursor-pointer">Home</Link>
-                    <Link to='/stores' className="hover:text-[#3e1b7a] cursor-pointer">Stores</Link>
-                    <Link to='/insurance' className="hover:text-[#3e1b7a] cursor-pointer">Insurance</Link>
-                    <Link to='/wealth' className="hover:text-[#3e1b7a] cursor-pointer">Wealth</Link>
-                    <Link to='/services/history' className="hover:text-[#3e1b7a] cursor-pointer">History</Link>
-                    <Link to='/about' className="hover:text-[#3e1b7a] cursor-pointer">About</Link>
+                <div className="flex items-center gap-5">
+                    {user && <div data-bs-toggle="offcanvas" href="#sidebarPanel" role="button" aria-controls="sidebarPanel" className="lg:hidden block">
+                        <IconButton>
+                            <Avatar src={user.data.photoURL} sx={{ width: 30, height: 30 }} alt="dp" className="mx-auto text-lg lg:hidden block" />
+                        </IconButton>
+                    </div>}
 
+                    <div className="offcanvas offcanvas-start" tabIndex="-1" id="sidebarPanel" aria-labelledby="sidebarPanelLabel">
+                        <div className="offcanvas-body relative">
+                            <div className="absolute right-2 -top-2">
+                                <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"><CloseRoundedIcon /></button>
+                            </div>
+                            <Sidebar />
+                        </div>
+                    </div>
+                    <img src="/assets/logo.svg" className='md:h-14 h-10 cursor-pointer' alt="logo" />
                 </div>
+
+                <NavItems className="hidden md:flex items-center justify-between" />
+                <div className="block md:hidden relative">
+                    <IconButton onClick={() => setOpen((isOpen) => !isOpen)}>
+                        {
+                            open ? <CloseRoundedIcon /> : <MenuRoundedIcon />
+                        }
+                    </IconButton>
+                    {
+                        open && <div className="z-30 absolute bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 p-2 right-2 top-7">
+                            <NavItems className="md:hidden flex flex-col items-start" />
+                        </div>
+                    }
+                </div>
+
+
+
+
 
                 {/* MODAL BALANCE */}
                 {
@@ -51,3 +77,14 @@ const Navbar = () => {
 }
 
 export default Navbar
+
+function NavItems({ className }) {
+    return <div className={`${className} font-sans font-bold gap-3 text-[#6739b7]`}>
+        <Link to='/' className="hover:text-[#3e1b7a] cursor-pointer">Home</Link>
+        <Link to='/stores' className="hover:text-[#3e1b7a] cursor-pointer">Stores</Link>
+        <Link to='/insurance' className="hover:text-[#3e1b7a] cursor-pointer">Insurance</Link>
+        <Link to='/wealth' className="hover:text-[#3e1b7a] cursor-pointer">Wealth</Link>
+        <Link to='/services/history' className="hover:text-[#3e1b7a] cursor-pointer">History</Link>
+        <Link to='/about' className="hover:text-[#3e1b7a] cursor-pointer">About</Link>
+    </div>
+}

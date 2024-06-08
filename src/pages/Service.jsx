@@ -46,11 +46,7 @@ const Service = () => {
     const fetchUser = async (phone) => {
         const querySnapshot = await getDocs(collection(db, "users"));
 
-        console.log('Before loop');
         querySnapshot.forEach((doc) => {
-            // doc.data() is never undefined for query doc snapshots
-
-            console.log('In the loop')
 
             if (doc.data().mobile.toString() === phone) {
                 if (doc.data().mobile === user.data.mobile) {
@@ -64,7 +60,6 @@ const Service = () => {
             }
             else if (querySnapshot.size === index) {
                 if (receiver !== 'self' && receiver === null) {
-                    console.log('not found');
                     setLoader(false)
                     setReceiver('notfound')
                 }
@@ -75,8 +70,6 @@ const Service = () => {
 
 
         });
-
-        console.log('After loop');
 
 
     }
@@ -194,8 +187,6 @@ const Service = () => {
             // share details to EnterUPIID component
             dispatch(setPaymentDetails(paymentDetails))
 
-            console.log(paymentDetails)
-
         }
     }
 
@@ -216,7 +207,7 @@ const Service = () => {
                 <IconButton onClick={() => { navigate(-1) }}>
                     <ArrowBackRoundedIcon className="text-violet-900" sx={{ 'fontSize': '40px' }} />
                 </IconButton>
-                <p className="text-3xl text-violet-900">Transfer money to Mobile Number</p>
+                <p className="text-2xl md:text-3xl text-violet-900">Transfer money to Mobile Number</p>
 
             </div>
             <hr />
@@ -226,10 +217,10 @@ const Service = () => {
                         <RadioButtonCheckedRoundedIcon sx={{ 'fontSize': '15px', }} />
                         <p className="text-lg text-black">Mobile Number of Receiver</p>
                     </div>
-                    <div className=" flex items-end justify-start gap-2">
+                    <div className="flex items-end justify-start gap-2 mt-2">
                         <LocalPhoneRoundedIcon sx={{ 'fontSize': '30px', 'fontStyle': 'bold' }} className='text-violet-900' />
 
-                        <input type="number" className='border-b-2 ease-in-out duration-500 px-3 py-1 outline-none border-b-violet-500 text-3xl font-bold focus:border-b-violet-900 text-violet-900' onChange={handleInput} ref={numRef} id='numberInput' />
+                        <input type="number" className='border-b-2  ease-in-out duration-500 px-3 py-1 outline-none border-b-violet-500 md:text-3xl font-bold focus:border-b-violet-900 text-violet-900' onChange={handleInput} ref={numRef} id='numberInput' />
 
                     </div>
                     <p className='text-sm text-gray-500 mt-2 mb-5'>Make sure you enter correct Mobile Number</p>
@@ -243,7 +234,7 @@ const Service = () => {
                     {loader === false ?
                         receiver && receiver !== 'self' && receiver !== 'notfound' ?
                             <div className=''>
-                                <div className='flex items-center justify-start gap-2 mt-2 bg-violet-900 p-2 rounded-lg w-1/2'>
+                                <div className='flex items-center justify-start gap-4 mt-2 bg-violet-900 p-2 rounded-lg w-full md:w-1/2'>
                                     <Avatar src={receiver.data.photoURL} sx={{ 'height': '45px', 'width': '45px' }} alt="thor" className='rounded-full' />
                                     <div className='flex-col items-start gap-0'>
                                         <div className='flex items-center justify-center gap-1'>
@@ -257,7 +248,7 @@ const Service = () => {
                             : receiver === 'self' ?
 
 
-                                <div className='bg-red-100 rounded-lg p-2 w-1/2'>
+                                <div className='bg-red-100 rounded-lg p-2 w-full md:w-1/2'>
                                     <div className='flex items-center justify-start gap-2'>
                                         <RepeatIcon className='text-red-500' />
                                         <p className='text-xl text-red-500'><b>{user.data.name}</b>, You can't Send Money to yourself.</p>
@@ -302,7 +293,7 @@ const Service = () => {
 
                                 <input type="number" onChange={handleAmountInput} id='amountInput'
                                     ref={amountRef}
-                                    className='border-b-green-700 focus:border-b-green-900 ease-in-out duration-500 border-b-2 outline-none text-violet-900 font-bold px-3 py-1 text-3xl' size={10} />
+                                    className='border-b-green-700 focus:border-b-green-900 ease-in-out duration-500 border-b-2 outline-none text-violet-900 font-bold px-3 py-1 md:text-3xl' size={10} />
 
                             </div>
                             <p className='text-sm text-gray-500 mt-2 mb-5'>Make sure you enter accurate Amount</p>

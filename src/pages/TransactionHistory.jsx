@@ -33,13 +33,13 @@ const TransactionHistory = () => {
 
 
             <div className='mx-3'>
-                <div className="flex justify-between items-center">
+                <div className="md:flex justify-between items-center mt-3">
                     <div className='flex items-center justify-start gap-3'>
                         <ArrowBackRoundedIcon sx={{ 'color': '#562f99', 'fontSize': '40px' }} className='cursor-pointer' onClick={() => { navigate(-1) }} />
 
-                        <p className='text-3xl text-violet-900'>Transaction History</p>
+                        <p className='md:text-2xl sm:text-xl text-lg text-violet-900'>Transaction History</p>
                     </div>
-                    <div className='flex items-center gap-3'>
+                    <div className='flex items-center gap-3 md:mt-0 mt-2'>
                         <div className='flex items-center justify-start gap-2 border-2 border-violet-900 rounded-full p-1 cursor-pointer'>
                             <span className='text-violet-900'>Month</span>
                             <KeyboardArrowDownRoundedIcon className='text-violet-900' />
@@ -75,7 +75,7 @@ const TransactionHistory = () => {
 
                             {
                                 arrayLength >= sliceUpto ?
-                                    <div className="flex items-center gap-3 mx-auto cursor-pointer hover:bg-slate-300 justify-center mt-5 bg-slate-200 rounded-xl p-2 w-1/2" onClick={() => { setSliceUpto(sliceUpto + 7) }}>
+                                    <div className="flex items-center gap-3 mx-auto cursor-pointer hover:bg-slate-300 justify-center mt-5 bg-slate-200 rounded-xl p-2 w-full md:w-1/2" onClick={() => { setSliceUpto(sliceUpto + 7) }}>
                                         <ExpandCircleDownRoundedIcon className='text-slate-500' />
                                         <p className='text-slate-500 font-bold'>Load More Transactions</p>
                                     </div> : null

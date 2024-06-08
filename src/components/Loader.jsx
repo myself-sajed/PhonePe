@@ -11,14 +11,12 @@ const Loader = ({ title, selectedBank, enteredUpiId, setIsAuth }) => {
         if (title === 'Fetching Balance') {
 
             if (parseInt(enteredUpiId) === selectedBank.upiPin) {
-                console.log('Successfully matched')
                 setTimeout(() => {
                     setIsAuth(true)
                     dispatch(setComponent('balance'))
                 }, 2000)
             }
             else {
-                console.log('Failed to match')
                 setTimeout(() => {
                     setIsAuth(false)
                     dispatch(setComponent('balance'))

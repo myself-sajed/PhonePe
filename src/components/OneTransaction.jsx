@@ -6,10 +6,10 @@ const OneTransaction = ({ transaction }) => {
 
             <div className="flex items-center justify-between gap-4 my-1 cursor-pointer hover:bg-violet-100 p-2 rounded-lg ease-in-out duration-200">
                 <div className='flex items-center gap-4'>
-                    <img src={transaction.details.photoURL} alt="" className="rounded-[100px] border border-violet-900 h-14" />
+                    <img src={transaction.details.photoURL} alt="" className="rounded-[100px] border border-violet-900 md:h-14 h-10" />
                     <div className='flex flex-col '>
-                        <p className='text-xl'>{transaction.details.actionFrom}</p>
-                        <p className='text-md'>{transaction.details.name}</p>
+                        <p className='text-lg md:text-xl'>{transaction.details.actionFrom}</p>
+                        <p className='text-base md:text-md'>{transaction.details.name}</p>
                     </div>
                 </div>
                 <div className='flex flex-col items-end justify-end'>

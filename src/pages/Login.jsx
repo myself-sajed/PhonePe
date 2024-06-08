@@ -59,7 +59,7 @@ const Login = ({ setAuth }) => {
         }
         else if (numRef.current.value.length === 10) {
             setLoader(true)
-            console.log(typeof numRef.current.value);
+                (typeof numRef.current.value);
             fetchUser(numRef.current.value)
 
         }
@@ -76,26 +76,18 @@ const Login = ({ setAuth }) => {
 
     // Send OTP
     const sendOTP = async () => {
-        console.log('Number', number);
-        console.log('send otp');
         if (!user) {
-            toast.error('The Entered number is not Registered on PhonePe')
+            toast.error('The entered number is not registered on PhonePe')
             return
         }
         else {
 
-            // axios call for generating random otp
-            Axios.get('http://localhost:4000/api/generateOTP').then(res => {
-                if (res.data.message === 'ok') {
-                    console.log(res.data.otp);
-                    setServerOTP(res.data.otp)
-                    toast.success('Your OTP is ' + res.data.otp);
-                    setOtpStep(true)
-                }
-                else {
-                    toast.error('Something went wrong')
-                }
-            })
+            const generatedOTP = Math.floor(100000 + Math.random() * 900000)
+            setServerOTP(generatedOTP)
+            toast.success('Your OTP is ' + generatedOTP, {
+                duration: 7000
+            });
+            setOtpStep(true)
 
         }
     }
@@ -127,26 +119,26 @@ const Login = ({ setAuth }) => {
 
     return (
         <div className="h-screen w-screen">
-            <div className='flex items-center mx-20 justify-start gap-32 absolute top-0 bottom-52 right-0 left-0'>
-                <div>
+            <div className='md:flex items-center md:mx-20 text-center justify-start gap-32 absolute top-0 bottom-52 right-0 left-0'>
+                <div className="md:block flex items-center justify-center w-full md:mb-0 my-10">
                     <div>
-                        <p className='text-9xl font-bold text-violet-900'>Karte Ja.</p>
-                        <p className='text-9xl font-bold text-violet-600'>Badhte Ja.</p>
+                        <p className='text-4xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-violet-900 whitespace-nowrap'>Karte Ja.</p>
+                        <p className='text-4xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-violet-600 whitespace-nowrap'>Badhte Ja.</p>
                     </div>
                 </div>
-                <div className='flex flex-col items-center justify-start gap-3  rounded-xl'>
+                <div className='flex flex-col items-center justify-start gap-3 w-full rounded-xl'>
                     <div>
-                        <img src="/assets/logo.svg" alt="logo" className="h-20" />
+                        <img src="/assets/logo.svg" alt="logo" className="md:h-20 h-12" />
                         <hr />
                     </div>
 
                     {/* // HEADING */}
                     {otpStep ?
-                        <p className="text-sm text-violet-500">Enter OTP we just sent you</p> :
+                        <p className="text-sm text-violet-500 text-center w-full">Enter OTP we just sent you</p> :
 
-                        <div className="flex item-center justify-center">
+                        <div className="flex item-center justify-center w-full">
 
-                            <div>
+                            <div className="w-full flex items-center justify-center">
                                 {
                                     loader ?
                                         <CircularProgress sx={{ 'height': '10px', 'color': '#5f259f' }} />
@@ -159,7 +151,7 @@ const Login = ({ setAuth }) => {
 
                                             : user === false ?
                                                 <p className='text-sm text-red-500'>User is not registered with <span className='text-violet-900 font-bold'>PhonePe</span>. <Link to='/register' className='text-blue-900  hover:font-bold duration-200 ease-in-out'>Register Now</Link>.</p>
-                                                : <p className="text-sm text-violet-500">Enter mobile registered with <span className='text-violet-900 font-bold'>PhonePe</span>.</p>
+                                                : <p className="text-sm text-violet-500 w-full">Enter mobile registered with <span className='text-violet-900 font-bold'>PhonePe</span>.</p>
                                 }
                             </div>
                         </div>
@@ -204,7 +196,7 @@ const Login = ({ setAuth }) => {
                     }
 
 
-                    <p className="text-sm text-gray-500">By continuing, you agree to our <span className='text-violet-900 font-bold'>Terms of Service</span> and <span className='text-violet-900 font-bold'>Privacy Policy</span></p>
+                    <p className="text-sm text-gray-500 mx-5">By continuing, you agree to our <span className='text-violet-900 font-bold'>Terms of Service</span> and <span className='text-violet-900 font-bold'>Privacy Policy</span></p>
                 </div>
             </div>
             <div className="flex items-center justify-center absolute border-t bottom-10 right-0 left-0">

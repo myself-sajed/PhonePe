@@ -59,7 +59,6 @@ const Login = ({ setAuth }) => {
         }
         else if (numRef.current.value.length === 10) {
             setLoader(true)
-                (typeof numRef.current.value);
             fetchUser(numRef.current.value)
 
         }
@@ -106,7 +105,8 @@ const Login = ({ setAuth }) => {
             else {
                 if (otp.toString() === serverOTP.toString()) {
                     toast.success('Verified! Logging you in...')
-                    setAuth(true)
+
+                    setAuth({ auth: true, number })
                 }
                 else {
                     toast.error('Incorrect OTP')

@@ -142,7 +142,7 @@ const Sidebar = ({ number, className = "lg:mt-[6rem]" }) => {
                     </div>
                 </div>
 
-                    : <div><Loader title='Fetching User Details' /></div>
+                    : <div className={className}><Loader title='Fetching User Details' /></div>
 
             }
 

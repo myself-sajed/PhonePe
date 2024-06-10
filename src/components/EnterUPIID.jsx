@@ -216,12 +216,12 @@ const EnterUPIID = ({ button1, button2, selectedBank, setEnteredUpiId }) => {
             <p className='my-2 text-center'>Please enter UPI ID</p>
             <div className='flex items-center justify-center mt-3'>
 
-                <input type="password" size='1' maxLength='1' className='border-4 text-center text-violet-700 text-xl rounded-lg p-1 m-2 border-violet-700 outline-none focus:border-violet-900 focus:text-violet-900 ease-in-out duration-300' ref={ref1}
+                <input type="password" size='1' maxLength='1' className='border-4 text-center text-violet-700 md:text-xl sm:text-lg text-base rounded-lg sm:p-1 m-2 border-violet-700 outline-none focus:border-violet-900 focus:text-violet-900 ease-in-out duration-300' ref={ref1}
                     onChange={(e) => { changeInput(e, ref2, ref1,) }} />
 
 
 
-                <input type="password" size='1' maxLength='1' className='border-4 text-center text-violet-700 text-xl rounded-lg p-1 m-2 border-violet-700 outline-none focus:border-violet-900 focus:text-violet-900 ease-in-out duration-300' ref={ref2}
+                <input type="password" size='1' maxLength='1' className='border-4 text-center text-violet-700 md:text-xl sm:text-lg text-base rounded-lg sm:p-1 m-2 border-violet-700 outline-none focus:border-violet-900 focus:text-violet-900 ease-in-out duration-300' ref={ref2}
                     onChange={(e) => { changeInput(e, ref3, ref2,) }}
                     onKeyDown={(e) => {
                         if (e.key === 'Backspace') {
@@ -233,7 +233,7 @@ const EnterUPIID = ({ button1, button2, selectedBank, setEnteredUpiId }) => {
                     }
                 />
 
-                <input type="password" size='1' maxLength='1' className='border-4 text-center text-violet-700 text-xl rounded-lg p-1 m-2 border-violet-700 outline-none focus:border-violet-900 focus:text-violet-900 ease-in-out duration-300' ref={ref3}
+                <input type="password" size='1' maxLength='1' className='border-4 text-center text-violet-700 md:text-xl sm:text-lg text-base rounded-lg sm:p-1 m-2 border-violet-700 outline-none focus:border-violet-900 focus:text-violet-900 ease-in-out duration-300' ref={ref3}
                     onChange={(e) => { changeInput(e, ref4, ref3, ref2) }}
                     onKeyDown={(e) => {
                         if (e.key === 'Backspace') {
@@ -244,7 +244,7 @@ const EnterUPIID = ({ button1, button2, selectedBank, setEnteredUpiId }) => {
                 />
 
 
-                <input type="password" size='1' maxLength='1' className='border-4 text-center text-violet-700 text-xl rounded-lg p-1 m-2 border-violet-700 outline-none focus:border-violet-900 focus:text-violet-900 ease-in-out duration-300' ref={ref4}
+                <input type="password" size='1' maxLength='1' className='border-4 text-center text-violet-700 md:text-xl sm:text-lg text-base rounded-lg sm:p-1 m-2 border-violet-700 outline-none focus:border-violet-900 focus:text-violet-900 ease-in-out duration-300' ref={ref4}
                     onKeyDown={(e) => {
                         if (e.key === 'Backspace') {
                             ref4.current.value = ''

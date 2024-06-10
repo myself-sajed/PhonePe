@@ -29,10 +29,10 @@ const Navbar = ({ number }) => {
 
                     <div className="offcanvas offcanvas-start" tabIndex="-1" id="sidebarPanel" aria-labelledby="sidebarPanelLabel">
                         <div className="offcanvas-body relative">
-                            <div className="absolute right-2 -top-2">
+                            <div className="absolute right-4 top-5">
                                 <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"><CloseRoundedIcon /></button>
                             </div>
-                            <Sidebar number={number} />
+                            <Sidebar number={number} className='mt-[3.5rem]' />
                         </div>
                     </div>
                     <img src="/assets/logo.svg" className='md:h-14 h-10 cursor-pointer' alt="logo" />
@@ -47,7 +47,7 @@ const Navbar = ({ number }) => {
                     </IconButton>
                     {
                         open && <div className="z-30 absolute bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 p-2 right-2 top-7">
-                            <NavItems className="md:hidden flex flex-col items-start" />
+                            <NavItems setOpen={setOpen} className="md:hidden flex flex-col items-start" />
                         </div>
                     }
                 </div>
@@ -78,13 +78,13 @@ const Navbar = ({ number }) => {
 
 export default Navbar
 
-function NavItems({ className }) {
+function NavItems({ className, setOpen }) {
     return <div className={`${className} font-sans font-bold gap-3 text-[#6739b7]`}>
-        <Link to='/' className="hover:text-[#3e1b7a] cursor-pointer">Home</Link>
-        <Link to='/stores' className="hover:text-[#3e1b7a] cursor-pointer">Stores</Link>
-        <Link to='/insurance' className="hover:text-[#3e1b7a] cursor-pointer">Insurance</Link>
-        <Link to='/wealth' className="hover:text-[#3e1b7a] cursor-pointer">Wealth</Link>
-        <Link to='/services/history' className="hover:text-[#3e1b7a] cursor-pointer">History</Link>
-        <Link to='/about' className="hover:text-[#3e1b7a] cursor-pointer">About</Link>
+        <Link onClick={() => setOpen(false)} to='/' className="hover:text-[#3e1b7a] cursor-pointer">Home</Link>
+        <Link onClick={() => setOpen(false)} to='/stores' className="hover:text-[#3e1b7a] cursor-pointer">Stores</Link>
+        <Link onClick={() => setOpen(false)} to='/insurance' className="hover:text-[#3e1b7a] cursor-pointer">Insurance</Link>
+        <Link onClick={() => setOpen(false)} to='/wealth' className="hover:text-[#3e1b7a] cursor-pointer">Wealth</Link>
+        <Link onClick={() => setOpen(false)} to='/services/history' className="hover:text-[#3e1b7a] cursor-pointer">History</Link>
+        <Link onClick={() => setOpen(false)} to='/about' className="hover:text-[#3e1b7a] cursor-pointer">About</Link>
     </div>
 }

@@ -19,7 +19,7 @@ const UPIModal = () => {
 
     return (
         <div className="bg-[#00004e6e] fixed top-0 bottom-0 z-10 right-0 left-0 flex justify-center items-center">
-            <div className="bg-white rounded-xl p-3 w-[500px]">
+            <div className="bg-white rounded-xl p-3 w-full m:mx-10 md:mx-0 md:w-[500px]">
                 <div className='flex items-center justify-center gap-5 m-2'>
                     <div className='flex item-center justify-center gap-3'>
                         <AccountBalanceWalletRoundedIcon sx={{ 'color': '#562f99', 'fontSize': '35px' }} />
@@ -48,7 +48,7 @@ const UPIModal = () => {
                 </div>
                 <hr />
                 <div className='my-3 flex items-center justify-center'>
-                    <img src="/assets/upilogo.svg" alt="upi" className='h-14' />
+                    <img src="/assets/upilogo.svg" alt="upi" className='h-10 sm:h-12 md:h-14' />
                 </div>
 
             </div>

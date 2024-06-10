@@ -27,7 +27,7 @@ const Loader = ({ title, selectedBank, enteredUpiId, setIsAuth }) => {
     })
 
     return (
-        <div className="flex flex-col items-center justify-center my-8 gap-3">
+        <div className="flex flex-col items-center justify-center my-8 gap-3 w-full">
             <CircularProgress sx={{ 'color': '#562f99' }} />
             <div className="text-center">
                 <p className="text-xl text-violet-900">{title}</p>

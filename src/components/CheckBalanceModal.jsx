@@ -22,7 +22,7 @@ const CheckBalanceModal = ({ setModal }) => {
 
     return (
         <div className="bg-[#00004e6e] fixed top-0 bottom-0 z-10 right-0 left-0 flex justify-center items-center">
-            <div className="bg-white rounded-xl p-3 w-[500px]">
+            <div className="bg-white rounded-xl p-3 w-full sm:mx-10 md:mx-0 md:w-[500px]">
                 <div className='flex items-center justify-center gap-5 m-2'>
                     <div className='flex item-center justify-center gap-3'>
                         <AccountBalanceWalletRoundedIcon sx={{ 'color': '#562f99', 'fontSize': '35px' }} />
@@ -42,7 +42,8 @@ const CheckBalanceModal = ({ setModal }) => {
 
                     {
                         component === 'banks' ? <ChooseBank setSelectBank={setSelectBank} /> : component === 'upiid' ?
-                            <EnterUPIID selectedBank={selectedBank} setEnteredUpiId={setEnteredUpiId} button1='Back' button2='Check Balace' /> : component === 'loader' ? <Loader title={'Fetching Balance'} enteredUpiId={enteredUpiId} selectedBank={selectedBank} setIsAuth={setIsAuth} /> : <FetchedBalance isAuth={isAuth} selectedBank={selectedBank} setModal={setModal} />
+                            <EnterUPIID selectedBank={selectedBank} setEnteredUpiId={setEnteredUpiId} button1='Back' button2='Check Balace' /> : component === 'loader' ?
+                                <Loader title={'Fetching Balance'} enteredUpiId={enteredUpiId} selectedBank={selectedBank} setIsAuth={setIsAuth} /> : <FetchedBalance isAuth={isAuth} selectedBank={selectedBank} setModal={setModal} />
                     }
 
 

@@ -18,7 +18,7 @@ import toast from 'react-hot-toast';
 import BeenhereRoundedIcon from '@mui/icons-material/BeenhereRounded';
 
 
-const Sidebar = ({ number }) => {
+const Sidebar = ({ number, className = "lg:mt-[6rem]" }) => {
 
     const dispatch = useDispatch();
     const user = useSelector(state => state.user.user);
@@ -56,7 +56,7 @@ const Sidebar = ({ number }) => {
         <div className='sm:p-2 min-h-screen'>
             {
 
-                user !== null ? <div className="lg:mt-[6rem]">
+                user !== null ? <div className={className}>
 
                     {/* PROFILE */}
                     <div className="mb-10">

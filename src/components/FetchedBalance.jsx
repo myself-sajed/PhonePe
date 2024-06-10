@@ -23,7 +23,7 @@ const FetchedBalance = ({ selectedBank, isAuth }) => {
         <div>
 
 
-            <div className="my-3">
+            <div className="my-3 w-full">
                 <div div className='flex items-center justify-center my-2' >
 
                     {

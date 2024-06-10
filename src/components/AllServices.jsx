@@ -45,16 +45,16 @@ const Rightbar = () => {
 
 
             {/* HERO VIDEO */}
-            <div className='flex justify-around items-center w-full'>
+            <div className='flex justify-around items-center w-full gap-3'>
 
-                <div className='flex flex-col items-start justify-start mt-0 md:mt-6 gap-0 leading-[50px] sm:leading-[70px] md:leading-[100px]'>
-                    <p className='text-[#5b32a1] font-bold font-sans text-[45px] sm:text-[60px] md:text-[100px]'>Simple</p>
-                    <p className='text-[#7843d4] font-bold font-sans text-[45px] sm:text-[60px] md:text-[100px]'>Fast</p>
-                    <p className='text-[#894ef0] font-bold font-sans text-[45px] sm:text-[60px] md:text-[100px]'>&</p>
-                    <p className='text-[#a36dff] font-bold font-sans text-[45px] sm:text-[60px] md:text-[100px]'>Secure</p>
+                <div className='flex flex-col items-start justify-start mt-0 md:mt-6 gap-0 leading-[40px] sm:leading-[70px] md:leading-[100px]'>
+                    <p className='text-[#5b32a1] font-bold font-sans text-[42px] sm:text-[60px] md:text-[100px]'>Simple</p>
+                    <p className='text-[#7843d4] font-bold font-sans text-[42px] sm:text-[60px] md:text-[100px]'>Fast</p>
+                    <p className='text-[#894ef0] font-bold font-sans text-[42px] sm:text-[60px] md:text-[100px]'>&</p>
+                    <p className='text-[#a36dff] font-bold font-sans text-[42px] sm:text-[60px] md:text-[100px]'>Secure</p>
                 </div>
 
-                <video className='md:w-[500px] md:h-[390px] w-[300px] h-[200px] border-none outline-none' loop muted autoPlay>
+                <video className='md:w-[500px] md:h-[390px] sm:w-[300px] sm:h-[200px] w-[230px] h-[160px] border-none outline-none' loop muted autoPlay>
                     <source src="/assets/v1.mp4" type="video/mp4" className='border-none outline-none' />
                     Your browser does not support the html video tag.
                 </video>

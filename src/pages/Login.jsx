@@ -161,11 +161,11 @@ const Login = ({ setAuth }) => {
                     {/* // INPUT */}
                     {!otpStep ?
 
-                        <input placeholder="Enter Mobile Number" maxLength="10" type="text" className='border-2 outline-none border-violet-900 rounded-full p-2 text-center bg-transparent text-violet-900 font-bold text-xl' id='numID' onChange={handleInput} ref={numRef} />
+                        <input placeholder="Enter Mobile Number" maxLength="10" type="number" className='border-2 outline-none border-violet-900 rounded-full p-2 text-center bg-transparent text-violet-900 font-bold text-xl' id='numID' onChange={handleInput} ref={numRef} />
 
                         :
 
-                        <input placeholder="Enter 6 digit OTP" maxLength="6" type="text" className='border-2 outline-none border-violet-900 rounded-full p-2 text-center bg-transparent text-violet-900 font-bold text-xl' value={otp} onChange={(e) => {
+                        <input placeholder="Enter 6 digit OTP" maxLength="6" type="number" className='border-2 outline-none border-violet-900 rounded-full p-2 text-center bg-transparent text-violet-900 font-bold text-xl' value={otp} onChange={(e) => {
                             setOtp(e.target.value);
                             if (otp.length >= 6) {
                                 return false

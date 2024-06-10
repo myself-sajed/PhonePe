@@ -18,60 +18,60 @@ const Navbar = ({ number }) => {
 
 
     return (
-        <div className='bg-[#c8c8ff] fixed top-0 left-0 z-30 w-full'>
-            <div className="flex items-center justify-between px-4 py-1">
-                <div className="flex items-center gap-5">
-                    {user && <div data-bs-toggle="offcanvas" href="#sidebarPanel" role="button" aria-controls="sidebarPanel" className="lg:hidden block">
-                        <IconButton>
-                            <Avatar src={user.data.photoURL} sx={{ width: 30, height: 30 }} alt="dp" className="mx-auto text-lg lg:hidden block" />
-                        </IconButton>
-                    </div>}
+        <div className="relative w-screen">
 
-                    <div className="offcanvas offcanvas-start" tabIndex="-1" id="sidebarPanel" aria-labelledby="sidebarPanelLabel">
-                        <div className="offcanvas-body relative">
-                            <div className="absolute right-4 top-5">
-                                <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"><CloseRoundedIcon /></button>
+            <div className='bg-[#c8c8ff] fixed top-0 left-0 z-30 w-full'>
+                <div className="flex items-center justify-between px-4 py-1">
+                    <div className="flex items-center gap-5">
+                        {user && <div data-bs-toggle="offcanvas" href="#sidebarPanel" role="button" aria-controls="sidebarPanel" className="lg:hidden block">
+                            <IconButton>
+                                <Avatar src={user.data.photoURL} sx={{ width: 30, height: 30 }} alt="dp" className="mx-auto text-lg lg:hidden block" />
+                            </IconButton>
+                        </div>}
+
+                        <div className="offcanvas offcanvas-start" tabIndex="-1" id="sidebarPanel" aria-labelledby="sidebarPanelLabel">
+                            <div className="offcanvas-body relative">
+                                <div className="absolute right-4 top-5">
+                                    <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"><CloseRoundedIcon /></button>
+                                </div>
+                                <Sidebar number={number} className='mt-[3.5rem]' />
                             </div>
-                            <Sidebar number={number} className='mt-[3.5rem]' />
                         </div>
+                        <img src="/assets/logo.svg" className='md:h-14 h-10 cursor-pointer' alt="logo" />
                     </div>
-                    <img src="/assets/logo.svg" className='md:h-14 h-10 cursor-pointer' alt="logo" />
-                </div>
 
-                <NavItems className="hidden md:flex items-center justify-between" />
-                <div className="block md:hidden relative">
-                    <IconButton onClick={() => setOpen((isOpen) => !isOpen)}>
+                    <NavItems className="hidden md:flex items-center justify-between" />
+                    <div className="block md:hidden relative">
+                        <IconButton onClick={() => setOpen((isOpen) => !isOpen)}>
+                            {
+                                open ? <CloseRoundedIcon /> : <MenuRoundedIcon />
+                            }
+                        </IconButton>
                         {
-                            open ? <CloseRoundedIcon /> : <MenuRoundedIcon />
+                            open && <div className="z-30 absolute bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 p-2 right-2 top-7">
+                                <NavItems setOpen={setOpen} className="md:hidden flex flex-col items-start" />
+                            </div>
                         }
-                    </IconButton>
-                    {
-                        open && <div className="z-30 absolute bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 p-2 right-2 top-7">
-                            <NavItems setOpen={setOpen} className="md:hidden flex flex-col items-start" />
-                        </div>
-                    }
+                    </div>
+
+
+
                 </div>
-
-
-
-
-
-                {/* MODAL BALANCE */}
-                {
-                    isBalanceModalOpen ? <CheckBalanceModal /> : null
-                }
-
-                {/* MODAL UPI */}
-                {
-                    isUPIModalOpen ? <UPIModal /> : null
-                }
-
-                {
-                    isPromptOpen ? <Prompts /> : null
-                }
-
-
             </div>
+            {/* MODAL BALANCE */}
+            {
+                isBalanceModalOpen ? <CheckBalanceModal /> : null
+            }
+
+            {/* MODAL UPI */}
+            {
+                isUPIModalOpen ? <UPIModal /> : null
+            }
+
+            {
+                isPromptOpen ? <Prompts /> : null
+            }
+
         </div>
     )
 }
